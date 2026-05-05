@@ -1,0 +1,12 @@
+# Node
+node_modules/
+build/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+env/
+.env
+sql_app.db
