@@ -28,6 +28,8 @@ app.add_middleware(
 
 @app.post("/api/users/register", response_model=schemas.UserOut)
 def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    if not user.email.lower().endswith("@taskflow.com"):
+        raise HTTPException(status_code=400, detail="Only @taskflow.com emails are allowed.")
     existing = db.query(models.User).filter(models.User.email == user.email).first()
     if existing:
         raise HTTPException(status_code=400, detail="Email already registered")

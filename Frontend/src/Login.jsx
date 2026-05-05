@@ -23,6 +23,10 @@ export default function Login({ onLogin, users, setUsers }) {
   const handleSignup = async (e) => {
     e.preventDefault();
     if (!form.email.includes('@'))  { setError('Enter a valid email address.'); return; }
+    if (!form.email.toLowerCase().endsWith('@taskflow.com')) { 
+      setError('Only @taskflow.com email addresses are allowed.'); 
+      return; 
+    }
     if (form.password.length < 4)   { setError('Password must be at least 4 characters.'); return; }
     if (allUsers.find(u => u.email === form.email)) { setError('This email is already registered.'); return; }
     setLoading(true);
