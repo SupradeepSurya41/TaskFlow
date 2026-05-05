@@ -29,7 +29,7 @@ Ensure PostgreSQL is running and create a database named `taskflow_db`.
 Navigate to the backend directory, install dependencies, and start the server:
 ```bash
 cd backend
-pip install -r requirements.txt
+pip install -r team-task-manager_backend_requirements.txt
 
 # Set your database connection string
 export DATABASE_URL="postgresql://postgres:password@localhost:5432/taskflow_db" # Linux/Mac
